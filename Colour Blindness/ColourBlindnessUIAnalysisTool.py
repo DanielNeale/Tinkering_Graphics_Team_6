@@ -21,6 +21,7 @@ def main():
     achromatopsia()
     main_window.blit(achro_image, (0, 0))
     pygame.image.save(achro_image, "achromatopsia.jpg")
+    pygame.display.update()
 
     while True:
         for event in pygame.event.get():
@@ -28,18 +29,16 @@ def main():
                 pygame.quit()
                 exit()
 
-        pygame.display.update()
-
 
 def achromatopsia():
     for x in range(0, achro_image.get_width()):
         for y in range(0, achro_image.get_height()):
             current_pixel = achro_image.get_at((x, y))
-            pixel_r = current_pixel[0]
-            pixel_g = current_pixel[1]
-            pixel_b = current_pixel[2]
-            pixel_achro = int((pixel_r + pixel_g + pixel_b) / 3)
-            current_pixel = (pixel_achro, pixel_achro, pixel_achro)
+            PIXEL_R = current_pixel[0]
+            PIXEL_G = current_pixel[1]
+            PIXEL_B = current_pixel[2]
+            PIXEL_GREY = int((PIXEL_R + PIXEL_G + PIXEL_B) / 3)
+            current_pixel = (PIXEL_GREY, PIXEL_GREY, PIXEL_GREY)
             achro_image.set_at((x, y), current_pixel)
 
 
