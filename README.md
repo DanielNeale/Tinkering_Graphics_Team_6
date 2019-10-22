@@ -1,11 +1,13 @@
-# Tinkering_Graphics_Team_6
+# Comp 120 tinkering graphics
+[Link to respository](https://github.com/DanielNeale/Tinkering_Graphics_Team_6)
 
-### Started contract 5 (21/10/19)
-Currently can create and save images for two different types of colour blindness from a file
+## Python code for tinkering graphics
+This respository contains code for contract 5, *colour blindness user interface tool* by Daniel Neale
 
-Won't run create both at the same time as both files end up the same
+## Instructions
 
-Example of what images should look like [from here](https://www.color-blindness.com/coblis-color-blindness-simulator/) and algorithms on how to generate them [from here](https://github.com/MaPePeR/jsColorblindSimulator/blob/master/colorblind.js)
+### Colour Blindness UI Tool
+Run the python file in the same folder as cat.jpg
 
-### Contract 5 (22/10/19)
-Will now run multiple colour blind images at a time
+## Licence
+MIT license
