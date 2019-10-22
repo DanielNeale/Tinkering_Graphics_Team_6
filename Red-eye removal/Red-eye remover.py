@@ -6,28 +6,34 @@ import sys, pygame, cv2, math, numpy,RedEye
 
     Current issues:
 
-    Red eye remover only removes one red eye on reference image
+    Only removes one red eye on reference image
 """
 
 pygame.init()      
 surface_sz = 900
 
-main_surface = pygame.display.set_mode((surface_sz, surface_sz))
+OUTPUT_DIRECTORY=r"C:\Users\badfi\Documents\Python Scripts\RedEyeRemoved.png"
+
+MAIN_SURFACE = pygame.display.set_mode((surface_sz, surface_sz))
 
 IMG_PATH=r"C:\Users\badfi\Pictures\RedEye.png"
+
 CASCADE_PATH=r"C:\Users\badfi\Pictures\haarcascade_eye.xml"
 
-cv2.imwrite(r"C:\Users\badfi\Documents\Python Scripts\RedEyeRemoved.png",RedEye.RemoveRedEyes(IMG_PATH,CASCADE_PATH))
+#Write the image returned by RedEye.RemoveRedEyes to the disk. Change output_directory to a valid path on your PC.
+cv2.imwrite(OUTPUT_DIRECTORY,RedEye.RemoveRedEyes(IMG_PATH,CASCADE_PATH))
 
-Removed=pygame.image.load(r"C:\Users\badfi\Documents\Python Scripts\RedEyeRemoved.png")
+#Load the image we just writ to the disk with pygame
+FINAL_OUTPUT=pygame.image.load(OUTPUT_DIRECTORY)
 
 while True:
     ev = pygame.event.poll()   
     if ev.type == pygame.QUIT:  
         break                  
 
-    main_surface.fill((0, 200, 255))
-    main_surface.blit(Removed,(0,0))
+    MAIN_SURFACE.fill((0, 200, 255))
+    #Display the final image
+    MAIN_SURFACE.blit(FINAL_OUTPUT,(0,0))
     pygame.display.flip()
 
 pygame.quit()
