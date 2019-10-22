@@ -1,4 +1,5 @@
 import pygame
+import time
 pygame.init()
 
 main_window = pygame.display.set_mode((1680, 1050))
@@ -9,14 +10,25 @@ protanopia_image = image
 
 
 def main():
+    protanopia()
+    main_window.blit(protanopia_image, (0, 0))
+    pygame.image.save(protanopia_image, "protanopia.jpg")
+    pygame.display.update()
+
+    time.sleep(.5)
+    main_window.fill((0, 0, 0))
+
     achromatopsia()
     main_window.blit(achro_image, (0, 0))
     pygame.image.save(achro_image, "achromatopsia.jpg")
 
-    protanopia()
-    main_window.blit(protanopia_image, (0, 0))
-    pygame.image.save(protanopia_image, "protanopia.jpg")
-    print("complete")
+    while True:
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                pygame.quit()
+                exit()
+
+        pygame.display.update()
 
 
 def achromatopsia():
@@ -46,11 +58,3 @@ def protanopia():
 
 
 main()
-
-while True:
-    for event in pygame.event.get():
-        if event.type == pygame.QUIT:
-            pygame.quit()
-            exit()
-
-    pygame.display.update()
