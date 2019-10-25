@@ -9,7 +9,7 @@ This respository contains code for contract 5, *colour blindness user interface 
 ### Colour Blindness UI Tool
 Run the python file in the same folder as [cat.jpg](https://wiki.startlap.hu/uploads/2016/01/adj-cimet-227.jpg). The programme may take a short while to run but you will be able to tell when it is completed as it would have output seven image files, the last one should be achromatopsia.jpg (black and white).
 
-## Random Monster Generator
+### Random Monster Generator
 Contains code for contract 4 use N key to generate the monster and S to save it as a .png file.
 Made by Joshua Thompson
 
