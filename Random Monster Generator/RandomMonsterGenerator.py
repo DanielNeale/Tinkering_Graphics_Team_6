@@ -6,7 +6,7 @@ pygame.init()
 WHITE = (255, 255, 255)
 
 # set up the window
-DISPLAYSURF = pygame.display.set_mode((1920, 1080), 0, 32)
+DISPLAYSURF = pygame.display.set_mode((1080, 1080), 0, 32)
 pygame.display.set_caption('Random Monster Generator')
 
 DISPLAYSURF.fill(WHITE)
@@ -25,9 +25,9 @@ heads = [fHead, mHead, vHead]
 bodies = [fBody, mBody, vBody]
 legs = [fLegs, mLegs, vLegs]
 
-DISPLAYSURF.blit(heads[random.randrange(0, 2, 1)], (0, 0))
+'''DISPLAYSURF.blit(heads[random.randrange(0, 2, 1)], (0, 0))
 DISPLAYSURF.blit(bodies[random.randrange(0, 2, 1)], (0, 5))
-DISPLAYSURF.blit(legs[random.randrange(0, 2, 1)], (0, 10))
+DISPLAYSURF.blit(legs[random.randrange(0, 2, 1)], (0, 10))'''
 
 # the main game loop
 while True:
@@ -35,4 +35,12 @@ while True:
         if event.type == QUIT:
             pygame.quit()
             sys.exit()
+        if event.type == pygame.KEYDOWN:
+            if event.key == pygame.K_n:
+                DISPLAYSURF.fill(WHITE)
+                DISPLAYSURF.blit(heads[random.randrange(0, 3, 1)], (0, 0))
+                DISPLAYSURF.blit(bodies[random.randrange(0, 3, 1)], (0, 5))
+                DISPLAYSURF.blit(legs[random.randrange(0, 3, 1)], (0, 10))
+            if event.key == pygame.K_s:
+                pygame.image.save(DISPLAYSURF, "NewMonster.png")
     pygame.display.update()
